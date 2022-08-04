@@ -2,6 +2,7 @@
 #define COUNTINGSORT_H
 
 #include<vector>
+#include<iostream>
 
 using namespace std;
 
@@ -58,11 +59,13 @@ namespace countSort
 			counter[unSorted[i]]--;
 		}
 
+		/*
 		// Output the sorted vector
 		for (int i = 0; i < size; i++)
 		{
-			cout << output[i] << ", ";
+			cout << output[i] << endl;
 		}
+		*/
 	}
 }
 

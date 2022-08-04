@@ -58,7 +58,13 @@ int main()
 	auto stop = high_resolution_clock::now();
 	auto duration = duration_cast<microseconds>(stop - start);
 
-	cout << endl << "Counting Sort Duration (milliseconds): " << duration.count() << endl;
+	cout << endl << size;
+
+	cout << endl;
+	cout << endl << "Counting Sort Duration (microseconds): " << duration.count() << endl;
+	cout << endl << "Counting Sort Duration (milliseconds): " << duration.count()/1000 << endl;
+	cout << endl << "Counting Sort Duration (seconds): " << double(double(duration.count() / 1000)/1000) << endl;
+
 
 	return 0;
 }
