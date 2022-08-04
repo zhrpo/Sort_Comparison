@@ -1,9 +1,6 @@
 #ifndef COUNTINGSORT_H
 #define COUNTINGSORT_H
 
-#include<vector>
-#include<iostream>
-
 using namespace std;
 
 namespace countSort
@@ -25,7 +22,7 @@ namespace countSort
 	}
 
 	// Build the new sorted list
-	void buildOutput(vector<int> unSorted, int size)
+	vector<int> buildOutput(vector<int> unSorted, int size)
 	{
 		int max = findMax(unSorted, size);
 
@@ -53,6 +50,8 @@ namespace countSort
 			counter[unSorted[i]]--;
 		}
 
+		return output;
+
 		/*
 		// Output the sorted vector
 		for (int i = 0; i < size; i++)
@@ -60,6 +59,7 @@ namespace countSort
 			cout << output[i] << endl;
 		}
 		*/
+		
 	}
 }
 

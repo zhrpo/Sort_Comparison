@@ -1,9 +1,6 @@
 #ifndef INSERTIONSORT_H
 #define INSERTIONSORT_H
 
-#include<vector>
-#include<iostream>
-
 using namespace std;
 
 namespace InsertSort

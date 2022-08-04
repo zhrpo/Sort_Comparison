@@ -144,9 +144,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="toVector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CountingSort.h" />
+    <ClInclude Include="toVector.h" />
     <ClInclude Include="InsertionSort.h" />
     <ClInclude Include="TimSort.h" />
   </ItemGroup>
