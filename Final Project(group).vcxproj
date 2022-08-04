@@ -143,7 +143,6 @@
     <Text Include="test.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CountingSort.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>

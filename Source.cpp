@@ -11,12 +11,10 @@ int main()
 {
 	ifstream datafile;
 	string line;
-
 	vector<int> unSorted;
 	int size = 0, index = 0;
 
-	countSort cs1;
-
+	// Open the given data file
 	datafile.open("CSCI2320_final_project_dataset.txt"); 
 	if (!datafile.is_open())
 	{
@@ -24,14 +22,17 @@ int main()
 		return 0;
 	}
 
-	while (getline(datafile, line)) // Find and set the size of the txt file
+	// Find and set the size of the given data file
+	while (getline(datafile, line)) 
 	{
 		++size;
 	}
 	datafile.close();
 
+	// Resize the vector to the newfound size
 	unSorted.resize(size+1);
 
+	// Clear and re-open the data file
 	datafile.clear();
 	datafile.open("CSCI2320_final_project_dataset.txt"); 
 	if (!datafile.is_open())
@@ -40,7 +41,8 @@ int main()
 		return 0;
 	}
 
-	while (!datafile.eof()) // Insert each oject into the array
+	// Insert each oject from the data file into unSorted vector
+	while (!datafile.eof()) 
 	{
 		datafile >> unSorted[index];
 		if (datafile.fail())
@@ -50,13 +52,13 @@ int main()
 	datafile.close();
 	datafile.clear();
 
+	// Counting Sort Algorithm
 	auto start = high_resolution_clock::now();
-	cs1.buildOutput(unSorted, size);
+	countSort::buildOutput(unSorted, size);
 	auto stop = high_resolution_clock::now();
 	auto duration = duration_cast<microseconds>(stop - start);
 
 	cout << endl << "Counting Sort Duration (milliseconds): " << duration.count() << endl;
-
 
 	return 0;
 }
