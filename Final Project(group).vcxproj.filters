@@ -27,5 +27,11 @@
     <ClInclude Include="CountingSort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TimSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertionSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

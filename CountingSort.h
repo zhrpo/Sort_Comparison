@@ -33,12 +33,6 @@ namespace countSort
 		vector<int> counter(max + 1);
 		vector<int> output(size);
 
-		// Set each element in counter to 0
-		for (int i = 0; i <= max; i++)
-		{
-			counter[i] = 0;
-		}
-
 		// Store the count of each object in counter vector
 		for (int i = 0; i < size; i++)
 		{
