@@ -5,22 +5,27 @@ using namespace std;
 
 namespace InsertSort
 {
-	vector<int> insertSort(vector<int> unSorted, int size)
+	vector<int> insertSort(vector<int> unSorted, int size, int left, int right)
 	{
+
 		int key, j;
-		int loading = size / 100; // Finds 1% of the size
 		vector<int> vSorted(size);
 		vSorted = unSorted;
 
+		int loading = size / 100; // Finds 1% of the size
+		
+		// Display loading screen
 		cout << endl << "Loading..." << endl;
 		cout << "____________________________________________________________________________________________________" << endl;
 
-		for (int i = 0; i < size; i++)
+		//          [normally 1]  [normally size]
+		for (int i = left + 1; i <= right; i++)
 		{
 			key = vSorted[i];
 			j = i - 1;
-
-			while (j >= 0 && vSorted[j] > key)
+			
+			//       [normally 0]
+			while (j >= left && vSorted[j] > key)
 			{
 				vSorted[j + 1] = vSorted[j];
 				j--;
@@ -46,5 +51,4 @@ namespace InsertSort
 		return vSorted;
 	}
 }
-
 #endif /* INSERTIONSORT_H*/

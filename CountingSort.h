@@ -3,7 +3,7 @@
 
 using namespace std;
 
-namespace countSort
+namespace CountSort
 {
 	// Find the biggest number in the data
 	int findMax(vector<int> unSorted, int size)
@@ -13,11 +13,8 @@ namespace countSort
 		for (int i = 1; i < size; i++)
 		{
 			if (unSorted[i] > max)
-			{
 				max = unSorted[i];
-			}
 		}
-
 		return max;
 	}
 
@@ -32,16 +29,11 @@ namespace countSort
 
 		// Store the count of each object in counter vector
 		for (int i = 0; i < size; i++)
-		{
 			counter[unSorted[i]]++;
-		}
 
 		// Move counter elements to contain intended position of a value for the sorted vector
 		for (int i = 1; i <= max; i++)
-		{
 			counter[i] += counter[i - 1];
-		}
-
 
 		// Build output unSorted
 		for (int i = size - 1; i >= 0; i--)
@@ -49,19 +41,16 @@ namespace countSort
 			output[counter[unSorted[i]] - 1] = unSorted[i];
 			counter[unSorted[i]]--;
 		}
-
 		return output;
 
-		/*
+		/* // Display newly sorted vector
 		// Output the sorted vector
 		for (int i = 0; i < size; i++)
 		{
 			cout << output[i] << endl;
 		}
 		*/
-		
 	}
 }
-
 #endif /* COUNTINGSORT_H*/
 

@@ -6,10 +6,10 @@
 
 toVector::toVector()
 {
-	ifstream datafile;
-	string fileName = "";
-	vector<int> unSorted;
-	int size = NULL;
+	datafile;
+	fileName = "";
+	unSorted;
+	size = NULL;
 }
 
 void toVector::setFileName(string name)
@@ -32,14 +32,11 @@ void toVector::setSize()
 
 	// Find and set the size of the given data file
 	while (getline(datafile, line))
-	{
 		++size;
-	}
 	datafile.close();
 
 	// Resize the vector to the newfound size
 	unSorted.resize(size);
-
 }
 
 void toVector::setVector()

@@ -21,5 +21,4 @@ private:
 	vector<int> unSorted;
 	int size;
 };
-
-#endif // !TOVECTOR_H
+#endif /* TOVECTOR_H */
