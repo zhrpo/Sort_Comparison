@@ -32,12 +32,12 @@ int QuickSort::split(int arr[], int first, int end) //swaps the data around to f
         }
         while (arr[left] <= pivot)
         {
-            left++;
+            left = left++;
         }
 
         while (arr[right] > pivot)
         {
-            right--;
+            right = right--;
         }
 
         
