@@ -148,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CountingSort.h" />
+    <ClInclude Include="Heap_Sort.h" />
+    <ClInclude Include="MergeSort.h" />
+    <ClInclude Include="QuickSort.h" />
     <ClInclude Include="toVector.h" />
     <ClInclude Include="InsertionSort.h" />
     <ClInclude Include="TimSort.h" />

@@ -1,10 +1,10 @@
 //Heap Sort Implimentation 
 #include <iostream>
 #include "Heap_Sort.h"
+
 using namespace std;
 
-
-void HSort::heap(int Heap[], int n, int i)
+void HSort::heap(vector<int> Heap, int n, int i)
 {
     int largest = i; //Tracks Largest INT
     int L = 0; //Tracks LEFT
@@ -30,7 +30,7 @@ void HSort::heap(int Heap[], int n, int i)
 }
 
 // main function to do heap sort
-void HSort::Sort(int Heap[], int n)
+void HSort::Sort(vector<int> Heap, int n)
 {
     // Build heap (rearrange array)
     for (int i = n / 2 - 1; i >= 0; i--)
@@ -49,7 +49,7 @@ void HSort::Sort(int Heap[], int n)
 }
 
 /* A utility function to print array of size n */
-void HSort::printArray(int Heap[], int n)
+void HSort::printArray(vector<int> Heap, int n)
 {
     for (int i = 0; i < n; ++i)
     {

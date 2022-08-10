@@ -30,7 +30,7 @@ namespace TimSort
 					// merge the two portions
 					if (mid < right)
 					{
-						//vSorted = Merge sort (vSorted, left, mid, right)
+						vSorted = MergeSort::MergeSort(vSorted, left, right);
 					}
 				}
 			}

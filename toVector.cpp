@@ -21,6 +21,7 @@ void toVector::setSize()
 {
 	string line;
 
+
 	// Open the given data file
 	//datafile.open("test.txt"); 
 	datafile.open(fileName);

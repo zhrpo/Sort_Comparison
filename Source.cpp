@@ -3,9 +3,13 @@
 #include <fstream> // To open txt file
 #include <string> // To iterate through file
 #include <vector> // To create vectors
+#include <algorithm>
 #include "toVector.h"
 #include "InsertionSort.h"
 #include "CountingSort.h" 
+#include "Heap_Sort.h"
+#include "QuickSort.h"
+#include "MergeSort.h"
 //#include "TimSort.h"
 
 using namespace std::chrono;
@@ -14,42 +18,71 @@ int main()
 {
 	//string name = "CSCI2320_final_project_dataset.txt";
 	string name = "test.txt"; // Much shorter datafile for testing purposes
+
 	
 	// Getting unsorted vector from given data file
 	toVector Unsorted;	
 	Unsorted.setFileName(name);
 	int size = Unsorted.getSize();
 	vector<int> vUnsorted = Unsorted.getVector();
+	vector<int> merge = vUnsorted;
 	
 	// --Insertion Sort Algorithm-- O(n^2) //
 	auto startIS = high_resolution_clock::now();
 	vector<int> insert = InsertSort::insertSort(vUnsorted, size, 0, size - 1);
 	auto stopIS = high_resolution_clock::now();
 	auto durationIS = duration_cast<microseconds>(stopIS - startIS);
-
 	cout << endl;
 	cout << endl << "Insertion Sort Duration (microseconds): " << durationIS.count() << endl;
 	cout << endl << "Insertion Sort Duration (milliseconds): " << durationIS.count() / 1000 << endl;
 	cout << endl << "Insertion Sort Duration (seconds): " << double(double(durationIS.count() / 1000) / 1000) << endl;
 
+	/* 
+	// --Heap Sort Algorithm-- O(nlog(n)) !!! TRY'S TO CHECK AT INDEX SIZE+1 !!!
+	auto startHS = high_resolution_clock::now();
+	vector<int> heap = HSort::Sort(vUnsorted, size);
+	auto stopHS = high_resolution_clock::now();
+	auto durationHS = duration_cast<microseconds>(stopHS - startHS);
+	cout << endl;
+	cout << endl << "Heap Sort Duration (microseconds): " << durationHS.count() << endl;
+	cout << endl << "Heap Sort Duration (milliseconds): " << durationHS.count() / 1000 << endl;
+	cout << endl << "Heap Sort Duration (seconds): " << double(double(durationHS.count() / 1000) / 1000) << endl;
+	*/
 
-	// --Heap Sort Algorithm-- O(nlog(n)) //
+	/* 
+	// --Merge Sort Algorithm-- O(nlog(n)) // !!! THE VECTOR DOES NOT GET CHANGED AFTER ALGORITHM !!!
+	auto startMS = high_resolution_clock::now();
+	MergeSort::MergeSort(vUnsorted, 0, size - 1);
+	auto stopMS = high_resolution_clock::now();
+	auto durationMS = duration_cast<microseconds>(stopMS - startMS);
+	cout << endl;
+	cout << endl << "Merge Sort Duration (microseconds): " << durationMS.count() << endl;
+	cout << endl << "Merge Sort Duration (milliseconds): " << durationMS.count() / 1000 << endl;
+	cout << endl << "Merge Sort Duration (seconds): " << double(double(durationMS.count() / 1000) / 1000) << endl;
+	*/
 
-	// --Merge Sort Algorithm-- O(nlog(n)) //
+	 
+	// --Quick Sort Algorithm-- O(nlog(n)) // !!! Try's to check at index size+1 !!!
+	auto startQS = high_resolution_clock::now();
+	vector<int> quick = QuickSort::getVector(vUnsorted, 0, size - 1);
+	auto stopQS = high_resolution_clock::now();
+	auto durationQS = duration_cast<microseconds>(stopQS - startQS);
+	cout << endl;
+	cout << endl << "Quick Sort Duration (microseconds): " << durationQS.count() << endl;
+	cout << endl << "Quick Sort Duration (milliseconds): " << durationQS.count() / 1000 << endl;
+	cout << endl << "Quick Sort Duration (seconds): " << double(double(durationQS.count() / 1000) / 1000) << endl;
 
-	// --Quick Sort Algorithm-- O(nlog(n)) //
-
-
+	/*
 	// --Counting Sort Algorithm-- O(n) //
 	auto startCS = high_resolution_clock::now();
 	vector<int> counting = CountSort::buildOutput(vUnsorted, size);
 	auto stopCS = high_resolution_clock::now();
 	auto durationCS = duration_cast<microseconds>(stopCS - startCS);
-
 	cout << endl;
 	cout << endl << "Counting Sort Duration (microseconds): " << durationCS.count() << endl;
 	cout << endl << "Counting Sort Duration (milliseconds): " << durationCS.count()/1000 << endl;
 	cout << endl << "Counting Sort Duration (seconds): " << double(double(durationCS.count() / 1000)/1000) << endl;
+	*/
 
 	/*
 	// --TimSort Algorithm-- O(nlog(n)) //
@@ -57,21 +90,23 @@ int main()
 	vector<int> tim = TimSort::timSort(vUnsorted, size);
 	auto stopTS = high_resolution_clock::now();
 	auto durationTS = duration_cast<microseconds>(stopTS - startTS);
-
 	cout << endl;
-	cout << endl << "Counting Sort Duration (microseconds): " << durationTS.count() << endl;
-	cout << endl << "Counting Sort Duration (milliseconds): " << durationTS.count() / 1000 << endl;
-	cout << endl << "Counting Sort Duration (seconds): " << double(double(durationTS.count() / 1000) / 1000) << endl;
+	cout << endl << "TimSort Duration (microseconds): " << durationTS.count() << endl;
+	cout << endl << "TimSort Duration (milliseconds): " << durationTS.count() / 1000 << endl;
+	cout << endl << "TimSort Duration (seconds): " << double(double(durationTS.count() / 1000) / 1000) << endl;
 	*/
 
-	// Checking if the algorithms built matching vectors
-	if (insert == counting)
+	if (insert == quick)
 	{
-		cout << "YES";
+		cout << "works" << endl;
 	}
 	else
 	{
-		cout << "NOPE. something is broken";
+		for (int i = 0; i < size; i++)
+		{
+			cout << quick[i] << ", ";
+		}
 	}
+	
 	return 0;
 }

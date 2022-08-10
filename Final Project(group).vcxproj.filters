@@ -39,5 +39,14 @@
     <ClInclude Include="toVector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Heap_Sort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MergeSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
