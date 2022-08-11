@@ -97,7 +97,7 @@ int main()
 	
 
 	if (insert == counting)
-		cout << "cont right" << endl;
+		cout << "count right" << endl;
 	else
 		cout << "count wrong" << endl;
 
@@ -122,12 +122,6 @@ int main()
 	{
 		cout << "quick wrong" << endl;
 
-	}
-
-	for (int i = 0; i < size; ++i)
-	{
-		cout << quick[i] << " ";
-		cout << "\n";
 	}
 
 	return 0;
