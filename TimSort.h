@@ -1,20 +1,31 @@
 #ifndef TIMSORT_H
 #define TIMSORT_H
 
-const int RUN = 32;
-
 namespace TimSort
-{
+{	
+	int getMinRun(int size)
+	{
+		int run = 0;
+		while (size >= 64)
+		{
+			run |= size & 1;
+			size >>= 1;
+		}
+
+		return size + run;
+	}
+
 	vector<int> timSort(vector <int> vUnsorted, int size)
 	{
 		vector<int> vSorted(size);
 			vSorted = vUnsorted;
+			int run = getMinRun(size);
 
 			// Portions of vSorted that have a size of RUN will be sorted through the insertion algorithm
-			for (int i = 0; i < size; i += RUN)
-				vSorted = InsertSort::insertSort(vSorted, size, i, min((i + RUN - 1), (size - 1)));
+			for (int i = 0; i < size; i += run)
+				vSorted = InsertSort::insertSort(vSorted, size, i, min((i + run - 1), (size - 1)));
 			
-			for (int length = RUN; length < size; length = 2 * length)
+			for (int length = run; length < size; length = 2 * length)
 			{
 				// left is the start point of the left portion
 				for (int left = 0; left < size; left += 2 * length)

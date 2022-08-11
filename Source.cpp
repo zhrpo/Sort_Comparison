@@ -83,7 +83,7 @@ int main()
 	cout << endl << "Heap Sort Duration (milliseconds): " << durationHS.count() / 1000 << endl;
 	cout << endl << "Heap Sort Duration (seconds): " << double(double(durationHS.count() / 1000) / 1000) << endl;
 
-	
+
 	// --Quick Sort Algorithm-- O(nlog(n)) //
 	auto startQS = high_resolution_clock::now();
 	QuickSort::Sort(quick, 0, size - 1);
