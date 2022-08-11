@@ -22,8 +22,7 @@ void toVector::setSize()
 	string line;
 
 
-	// Open the given data file
-	//datafile.open("test.txt"); 
+	// Open the given data file 
 	datafile.open(fileName);
 	if (!datafile.is_open())
 	{
@@ -46,7 +45,6 @@ void toVector::setVector()
 
 	// Clear and re-open the data file
 	datafile.clear();
-	//datafile.open("test.txt"); 
 	datafile.open(fileName);
 	if (!datafile.is_open())
 	{

@@ -1,8 +1,5 @@
-#pragma once
 #ifndef HEAPSORT
 #define HEAPSORT
-
-using namespace std;
 
 namespace HSort
 {
@@ -50,14 +47,5 @@ namespace HSort
         }
     }
 
-    /* A utility function to print array of size n */
-    void printArray(vector<int> Heap, int n)
-    {
-        for (int i = 0; i < n; ++i)
-        {
-            cout << Heap[i] << " ";
-            cout << "\n";
-        }
-    }
 }
 #endif

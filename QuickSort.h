@@ -1,11 +1,8 @@
-#pragma once
 /*-- QuickSort.h ---------------------------------------------------------------
   This header file defines the QuickSort class
 -------------------------------------------------------------------------*/
 #ifndef QUICKSORT_H
 #define QUICKSORT_H
-
-using namespace std;
 
 namespace QuickSort
 {
@@ -37,16 +34,6 @@ namespace QuickSort
             Sort(QuickSortArray, first, pivot - 1);
             Sort(QuickSortArray, pivot + 1, end);
         }
-    }
-
-    void display(vector<int> QuickSortArray, int n) //displays the array
-    {
-        for (int i = 0; i < n; ++i)
-        {
-            cout << QuickSortArray[i] << " ";
-            cout << "\n";
-        }
-
     }
 }
 #endif // !QUICKSORT_H

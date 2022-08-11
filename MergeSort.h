@@ -1,8 +1,6 @@
 #ifndef MERGESORT_H
 #define MERGESORT_H
 
-using namespace std;
-
 namespace MergeSort
 {
 	void MergeSortIntervals(vector<int>& sortedV, int left, int mid, int right)
@@ -51,7 +49,6 @@ namespace MergeSort
 
 	}
 	//Merge Sort Function it cuts the vector in two from left to mid to mid +1 to right
-
 	void MergeSort(vector<int>& v, int left, int right)
 	{
 		if (left >= right)

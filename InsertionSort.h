@@ -1,15 +1,13 @@
 #ifndef INSERTIONSORT_H
 #define INSERTIONSORT_H
 
-using namespace std;
-
 namespace InsertSort
 {
 	vector<int> insertSort(vector<int> unSorted, int size, int left, int right)
 	{
 
 		int key, j;
-		vector<int> vSorted(size);
+		vector<int> vSorted(size); // Sub-array
 		vSorted = unSorted;
 
 		for (int i = left + 1; i <= right; i++)
@@ -17,7 +15,7 @@ namespace InsertSort
 			key = vSorted[i];
 			j = i - 1;
 
-			while (j >= left && vSorted[j] > key)
+			while (j >= left && vSorted[j] > key) // Move elements > key one index ahead
 			{
 				vSorted[j + 1] = vSorted[j];
 				--j;

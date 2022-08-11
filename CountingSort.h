@@ -1,8 +1,6 @@
 #ifndef COUNTINGSORT_H
 #define COUNTINGSORT_H
 
-using namespace std;
-
 namespace CountSort
 {
 	// Find the biggest number in the data
@@ -31,25 +29,17 @@ namespace CountSort
 		for (int i = 0; i < size; i++)
 			counter[unSorted[i]]++;
 
-		// Move counter elements to contain intended position of a value for the sorted vector
+		// Store the cummulative count 
 		for (int i = 1; i <= max; i++)
 			counter[i] += counter[i - 1];
 
-		// Build output unSorted
+		// Place the elements into the output array
 		for (int i = size - 1; i >= 0; i--)
 		{
 			output[counter[unSorted[i]] - 1] = unSorted[i];
 			counter[unSorted[i]]--;
 		}
 		return output;
-
-		/* // Display newly sorted vector
-		// Output the sorted vector
-		for (int i = 0; i < size; i++)
-		{
-			cout << output[i] << endl;
-		}
-		*/
 	}
 }
 #endif /* COUNTINGSORT_H*/

@@ -3,7 +3,6 @@
 #include <fstream> // To open txt file
 #include <string> // To iterate through file
 #include <vector> // To create vectors
-#include <algorithm>
 #include "toVector.h"
 #include "InsertionSort.h"
 #include "CountingSort.h" 
@@ -16,15 +15,15 @@ using namespace std::chrono;
 
 int main()
 {
-	//string name = "CSCI2320_final_project_dataset.txt";
-	string name = "test.txt"; // Much shorter datafile for testing purposes
-
+	string name = "CSCI2320_final_project_dataset.txt";
 	
 	// Getting unsorted vector from given data file
 	toVector Unsorted;	
 	Unsorted.setFileName(name);
 	int size = Unsorted.getSize();
 	vector<int> vUnsorted = Unsorted.getVector();
+
+	// vUnsorted copies for certain algorithms
 	vector<int> merge = vUnsorted;
 	vector<int> heap = vUnsorted;
 	vector<int> quick = vUnsorted;
@@ -52,7 +51,7 @@ int main()
 	cout << endl << "TimSort Duration (seconds): " << double(double(durationTS.count() / 1000) / 1000) << endl;
 
 
-	// --Merge Sort Algorithm-- O(nlog(n)) // !!! THE VECTOR DOES NOT GET CHANGED AFTER ALGORITHM !!!
+	// --Merge Sort Algorithm-- O(nlog(n)) //
 	auto startMS = high_resolution_clock::now();
 	MergeSort::MergeSort(merge, 0, size - 1);
 	auto stopMS = high_resolution_clock::now();
@@ -74,7 +73,7 @@ int main()
 	cout << endl << "Insertion Sort Duration (seconds): " << double(double(durationIS.count() / 1000) / 1000) << endl;
 
 
-	// --Heap Sort Algorithm-- O(nlog(n)) !!! TRY'S TO CHECK AT INDEX SIZE+1 !!!
+	// --Heap Sort Algorithm-- O(nlog(n)) //
 	auto startHS = high_resolution_clock::now();
 	HSort::Sort(heap, size);
 	auto stopHS = high_resolution_clock::now();
@@ -85,7 +84,7 @@ int main()
 	cout << endl << "Heap Sort Duration (seconds): " << double(double(durationHS.count() / 1000) / 1000) << endl;
 
 	
-	// --Quick Sort Algorithm-- O(nlog(n)) // !!! Try's to check at index size+1 !!!
+	// --Quick Sort Algorithm-- O(nlog(n)) //
 	auto startQS = high_resolution_clock::now();
 	QuickSort::Sort(quick, 0, size - 1);
 	auto stopQS = high_resolution_clock::now();
@@ -94,35 +93,6 @@ int main()
 	cout << endl << "Quick Sort Duration (microseconds): " << durationQS.count() << endl;
 	cout << endl << "Quick Sort Duration (milliseconds): " << durationQS.count() / 1000 << endl;
 	cout << endl << "Quick Sort Duration (seconds): " << double(double(durationQS.count() / 1000) / 1000) << endl;
-	
-
-	if (insert == counting)
-		cout << "count right" << endl;
-	else
-		cout << "count wrong" << endl;
-
-	if (insert == merge)
-		cout << "merge right" << endl;
-	else
-		cout << "merge wrong" << endl;
-
-	if (insert == tim)
-		cout << "tim right" << endl;
-	else
-		cout << "tim wrong" << endl;
-
-	if (insert == heap)
-		cout << "heap right" << endl;
-	else
-		cout << "heap wrong" << endl;
-
-	if (insert == quick)
-		cout << "quick right" << endl;
-	else
-	{
-		cout << "quick wrong" << endl;
-
-	}
 
 	return 0;
 }

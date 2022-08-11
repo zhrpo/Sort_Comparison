@@ -1,8 +1,6 @@
-
 #ifndef TIMSORT_H
 #define TIMSORT_H
 
-using namespace std;
 const int RUN = 32;
 
 namespace TimSort
@@ -16,7 +14,6 @@ namespace TimSort
 			for (int i = 0; i < size; i += RUN)
 				vSorted = InsertSort::insertSort(vSorted, size, i, min((i + RUN - 1), (size - 1)));
 			
-
 			for (int length = RUN; length < size; length = 2 * length)
 			{
 				// left is the start point of the left portion
