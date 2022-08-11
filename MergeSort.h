@@ -5,51 +5,62 @@ using namespace std;
 
 namespace MergeSort
 {
-	void MergeSortIntervals(vector<int>& v, int left, int right, int mid)
+	void MergeSortIntervals(vector<int>& sortedV, int left, int mid, int right)
 	{
-		//Create a temp vector to store the vector obtained by merging
-		vector<int> temp;
+		int VOne = mid - left + 1;
+		int VTwo = right - mid;
 
-		int i, j;
-		i = left;
-		j = mid + 1;
+		vector<int> leftSub(VOne), rightSub(VTwo);
 
-		while (i <= mid && j < right) //This loop compairs the values from vectors i and j and sorts depending on which is smaller.
+		for (int i = 0; i < VOne; i++)
+			leftSub[i] = sortedV[left + i];
+		for (int j = 0; j < VTwo; j++)
+			rightSub[j] = sortedV[mid + 1 + j];
+
+		int i = 0, j = 0, k = left;
+
+		while (i < VOne && j < VTwo)
 		{
-			if (v[i] <= v[j])
+			if (leftSub[i] <= rightSub[j])
 			{
-				temp.push_back(v[i]);
+				sortedV[k] = leftSub[i];
 				i++;
 			}
 			else
 			{
-				temp.push_back(v[j]);
+				sortedV[k] = rightSub[j];
 				j++;
 			}
+			k++;
 		}
-		while (i <= mid) {   // if vector j is empty keeps pushing vector i elements
-			temp.push_back(v[i]);
+
+		while (i < VOne)
+		{
+			sortedV[k] = leftSub[i];
 			i++;
+			k++;
 		}
-		while (j <= right) {  // if vector i is empty pushes vector j elements
-			temp.push_back(v[j]);
+
+		while (j < VTwo)
+		{
+			sortedV[k] = rightSub[j];
 			j++;
+			k++;
 		}
-		for (int i = left; i <= right; i++) {
-			v[i] = temp[i - left];
-		}
+	
 
 	}
 	//Merge Sort Function it cuts the vector in two from left to mid to mid +1 to right
 
 	void MergeSort(vector<int>& v, int left, int right)
 	{
-		if (left < right) {
-			int mid = (left + right) / 2;
+		if (left >= right)
+			return;
+
+			int mid = left + (right - left)/2;
 			MergeSort(v, left, mid);
 			MergeSort(v, mid + 1, right);
 			MergeSortIntervals(v, left, mid, right);
-		}
 	}
 }
 #endif  //MERGESORT_H

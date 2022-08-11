@@ -6,7 +6,7 @@ using namespace std;
 
 namespace HSort
 {
-    void heap(vector<int> Heap, int n, int i)
+    void heap(vector<int>& Heap, int n, int i)
     {
         int largest = i; //Tracks Largest INT
         int L = 2 * i + 1; //Tracks LEFT
@@ -32,7 +32,7 @@ namespace HSort
     }
 
     // main function to do heap sort
-    vector<int> Sort(vector<int> Heap, int n)
+    void Sort(vector<int>& Heap, int n)
     {
         // Build heap (rearrange array)
         for (int i = n / 2 - 1; i >= 0; i--)
@@ -48,8 +48,6 @@ namespace HSort
             // call max heapify on the reduced heap
             heap(Heap, i, 0);
         }
-
-        return Heap;
     }
 
     /* A utility function to print array of size n */
